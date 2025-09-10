@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        /* --- General Body & Font Styles --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        /* --- Main Form Container --- */
+        .form-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Headings and Titles --- */
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        /* --- Form Grouping & Layout --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* --- Input Fields, Selects, Textareas --- */
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Important for padding and width to work together */
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+            outline: none;
+        }
+
+        .date-of-birth select {
+            width: 32%;
+            display: inline-block;
+        }
+        
+        .date-of-birth select:not(:last-child) {
+            margin-right: 2%;
+        }
+
+        /* --- Radio & Checkbox Styling --- */
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .radio-item, .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* --- Academic Qualifications Table --- */
+        .academics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .academics-table th, .academics-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .academics-table thead {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+
+        .academics-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* --- Buttons --- */
+        .button-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 0 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        input[type="reset"] {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* --- Responsive Design for Smaller Screens --- */
+        @media (max-width: 600px) {
+            .date-of-birth select {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .date-of-birth select:not(:last-child) {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <form action="#" method="post">
+            <h2>Registration Form</h2>
+
+            <h3>Personal Information</h3>
+            <div class="form-group">
+                <label for="uname">Name</label>
+                <input type="text" name="uname" id="uname" required>
+            </div>
+            <div class="form-group">
+                <label for="fathername">Father's Name</label>
+                <input type="text" name="fathername" id="fathername" required>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="male" name="gender" value="male"><label for="male">Male</label></div>
+                    <div class="radio-item"><input type="radio" id="female" name="gender" value="female"><label for="female">Female</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="number" name="contact" id="contact" required>
+            </div>
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <div class="date-of-birth">
+                    <select name="date">
+                        <script>for(let i=1; i<=31; i++) document.write(`<option value="${i}">${i}</option>`);</script>
+                    </select>
+                    <select name="month">
+                        <script>for(let i=1; i<=12; i++) document.write(`<option value="${i}">${i}</option>`);</script>
+                    </select>
+                    <select name="year">
+                        <script>for(let i=1998; i<=2006; i++) document.write(`<option value="${i}">${i}</option>`);</script>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Highest Qualification</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="qual_12th" name="qualification" value="12th"><label for="qual_12th">12th</label></div>
+                    <div class="radio-item"><input type="radio" id="qual_bsc" name="qualification" value="Bsc"><label for="qual_bsc">BSc</label></div>
+                    <div class="radio-item"><input type="radio" id="qual_btech" name="qualification" value="B.tech"><label for="qual_btech">B.Tech</label></div>
+                    <div class="radio-item"><input type="radio" id="qual_bca" name="qualification" value="BCA"><label for="qual_bca">BCA</label></div>
+                    <div class="radio-item"><input type="radio" id="qual_bcom" name="qualification" value="B.com"><label for="qual_bcom">B.Com</label></div>
+                    <div class="radio-item"><input type="radio" id="qual_mcom" name="qualification" value="Mcom"><label for="qual_mcom">M.Com</label></div>
+                </div>
+            </div>
+            
+            <h3>Academic Qualification</h3>
+            <table class="academics-table">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Degree</th>
+                        <th>Year</th>
+                        <th>Max Marks</th>
+                        <th>Obtained</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>10th</td>
+                        <td><select name="year_10th"><script>for(let i=2014; i<=2024; i++) document.write(`<option value="${i}">${i}</option>`);</script></select></td>
+                        <td><input type="number" name="marks_max_10th"></td>
+                        <td><input type="number" name="marks_obt_10th"></td>
+                        <td><input type="number" name="per_10th"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>12th</td>
+                        <td><select name="year_12th"><script>for(let i=2016; i<=2026; i++) document.write(`<option value="${i}">${i}</option>`);</script></select></td>
+                        <td><input type="number" name="marks_max_12th"></td>
+                        <td><input type="number" name="marks_obt_12th"></td>
+                        <td><input type="number" name="per_12th"></td>
+                    </tr>
+                     <tr>
+                        <td>3</td>
+                        <td>Diploma</td>
+                        <td><select name="year_diploma"><script>for(let i=2016; i<=2030; i++) document.write(`<option value="${i}">${i}</option>`);</script></select></td>
+                        <td><input type="number" name="marks_max_diploma"></td>
+                        <td><input type="number" name="marks_obt_diploma"></td>
+                        <td><input type="number" name="per_diploma"></td>
+                    </tr>
+                     <tr>
+                        <td>4</td>
+                        <td>B.Tech</td>
+                        <td><select name="year_btech"><script>for(let i=2016; i<=2030; i++) document.write(`<option value="${i}">${i}</option>`);</script></select></td>
+                        <td><input type="number" name="marks_max_btech"></td>
+                        <td><input type="number" name="marks_obt_btech"></td>
+                        <td><input type="number" name="per_btech"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Courses Offered</h3>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><input type="checkbox" id="course_mpharma" name="course" value="M.Pharma"><label for="course_mpharma">M.Pharma</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="course_bca" name="course" value="BCA"><label for="course_bca">BCA</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="course_mtech" name="course" value="M.Tech"><label for="course_mtech">M.Tech</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="course_bcom" name="course" value="B.Com"><label for="course_bcom">B.Com</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="course_btech" name="course" value="B.Tech"><label for="course_btech">B.Tech</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="course_mcom" name="course" value="M.Com"><label for="course_mcom">M.Com</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="course_msc" name="course" value="MSc"><label for="course_msc">MSc</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="course_bsc" name="course" value="BSc"><label for="course_bsc">BSc</label></div>
+            </div>
+
+            <div class="form-group">
+                <h3>Address</h3>
+                <textarea name="address"></textarea>
+            </div>
+            <div class="form-group">
+                <h3>Feedback</h3>
+                <textarea name="feedback"></textarea>
+            </div>
+            
+            <div class="button-group">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
