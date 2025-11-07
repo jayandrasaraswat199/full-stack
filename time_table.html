@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Time Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .timetable {
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 900px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        caption {
+            caption-side: top;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+        }
+        td.editable {
+            cursor: pointer;
+        }
+        td.editable:hover {
+            background-color: #d1ecf1;
+        }
+    </style>
+</head>
+<body>
+
+<table class="timetable" id="timeTable">
+    <caption>Weekly Time Table</caption>
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>8:00 - 9:00</td>
+            <td class="editable">Math</td>
+            <td class="editable">English</td>
+            <td class="editable">Physics</td>
+            <td class="editable">Chemistry</td>
+            <td class="editable">Biology</td>
+            <td class="editable">Free</td>
+        </tr>
+        <tr>
+            <td>9:00 - 10:00</td>
+            <td class="editable">Computer</td>
+            <td class="editable">Math</td>
+            <td class="editable">English</td>
+            <td class="editable">Physics</td>
+            <td class="editable">Chemistry</td>
+            <td class="editable">Free</td>
+        </tr>
+        <tr>
+            <td>10:00 - 11:00</td>
+            <td class="editable">Biology</td>
+            <td class="editable">Computer</td>
+            <td class="editable">Math</td>
+            <td class="editable">English</td>
+            <td class="editable">Physics</td>
+            <td class="editable">Free</td>
+        </tr>
+        <tr>
+            <td>11:00 - 12:00</td>
+            <td class="editable">Chemistry</td>
+            <td class="editable">Biology</td>
+            <td class="editable">Computer</td>
+            <td class="editable">Math</td>
+            <td class="editable">English</td>
+            <td class="editable">Free</td>
+        </tr>
+        <tr>
+            <td>12:00 - 1:00</td>
+            <td class="editable">Lunch</td>
+            <td class="editable">Lunch</td>
+            <td class="editable">Lunch</td>
+            <td class="editable">Lunch</td>
+            <td class="editable">Lunch</td>
+            <td class="editable">Lunch</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    // Make cells editable on click
+    const editableCells = document.querySelectorAll('.editable');
+    editableCells.forEach(cell => {
+        cell.addEventListener('click', () => {
+            const currentText = cell.textContent;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentText;
+            input.style.width = '100%';
+            cell.textContent = '';
+            cell.appendChild(input);
+            input.focus();
+
+            input.addEventListener('blur', () => {
+                cell.textContent = input.value || currentText;
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    cell.textContent = input.value || currentText;
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
 
